@@ -1,6 +1,6 @@
 use failure::Error;
 
-use maxminddb::geoip2;
+use maxminddb::geoip2::{self, country};
 
 use polars::datatypes::DataType::String as utf8;
 use polars::lazy::dsl::{col, GetOutput};
@@ -41,11 +41,18 @@ pub fn parse_ip(input: &str, output: &str, geolib: &str, separator: &str) -> Res
                             .map(|ip| match ip {
                                 Some(ip) => {
                                     let city = reader
-                                        .lookup::<geoip2::City>(IpAddr::from_str(&ip).unwrap())
-                                        .unwrap();
-                                    match city.country {
-                                        Some(country) => country.iso_code.unwrap().to_string(),
-                                        None => String::from(""),
+                                        .lookup::<geoip2::City>(IpAddr::from_str(&ip).unwrap());
+                                    match city {
+                                        Ok(city) => {
+                                            let country = city.country;
+                                            match country {
+                                                Some(country) => country.iso_code.unwrap().to_string(),
+                                                None => String::from(""),
+                                            }
+                                        },
+                                        Err(_) => {
+                                            String::from("")
+                                        }
                                     }
                                 }
                                 _ => String::from(""),
