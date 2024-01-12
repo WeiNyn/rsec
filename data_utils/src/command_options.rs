@@ -13,6 +13,9 @@ pub enum Subcommand {
 
     #[structopt(name = "backfill-ip", about="Backfill IP addresses")]
     BackfillIP(BackfillIPArguments),
+
+    #[structopt(name = "filter-ip-loc", about="Filter IP addresses by location")]
+    FilterIPLoc(FilterIPLocArguments),
 }
 
 #[derive(Debug, StructOpt)]
@@ -49,4 +52,19 @@ pub struct BackfillIPArguments {
 
     #[structopt(short = "s", long = "separator", help = "Separator", default_value = ",")]
     pub separator: String,
+}
+
+#[derive(Debug, StructOpt)]
+pub struct FilterIPLocArguments {
+    #[structopt(short = "i", long = "input", help = "Input path format")]
+    pub input: String,
+
+    #[structopt(short = "o", long = "output", help = "Output file")]
+    pub output: String,
+
+    #[structopt(short = "c", long = "current", help = "Current date")]
+    pub current: String,
+
+    #[structopt(short = "s", long = "span", help = "From date", default_value = "45")]
+    pub span: i64,
 }
