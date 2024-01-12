@@ -1,0 +1,13 @@
+[package]
+name = "rule_parser"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ordered-float = "4.2.0"
+polars = { version = "0.36.2", features = ["lazy"] }
+polars-core = "0.36.2"
+serde = { version = "1.0.193", features = ["derive"] }
+serde_json5 = "0.1.0"

@@ -1,0 +1,13 @@
+[package]
+name = "du"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+failure = "0.1.8"
+maxminddb = "0.24.0"
+polars = { version = "0.36.2", features = ["lazy", "strings", "csv", "streaming", "parquet"] }
+smartstring = "1.0.1"
+structopt = "0.3.26"

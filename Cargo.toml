@@ -1,0 +1,8 @@
+[workspace]
+resolver = "2"
+members = ["libs/handlers/rule_parser", "libs/playground", "data_utils"]
+
+[workspace.dependencies]
+rule_parser = { path = "libs/handlers/rule_parser" }
+playground = { path = "libs/playground" }
+data_utils = { path = "data_utils" }
