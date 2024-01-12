@@ -1,6 +1,6 @@
 use failure::Error;
 
-use maxminddb::geoip2::{self, country};
+use maxminddb::geoip2::{self};
 
 use polars::datatypes::DataType::String as utf8;
 use polars::lazy::dsl::{col, GetOutput};
