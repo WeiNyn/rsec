@@ -6,7 +6,9 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+chrono = "0.4.31"
 failure = "0.1.8"
+kdam = "0.5.1"
 maxminddb = "0.24.0"
 polars = { version = "0.36.2", features = ["lazy", "strings", "csv", "streaming", "parquet"] }
 smartstring = "1.0.1"
