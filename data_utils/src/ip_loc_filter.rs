@@ -45,7 +45,7 @@ pub fn filter_ip_loc(
             [col("uid")],
             JoinArgs::new(JoinType::Inner),
         )
-        .sink_csv(PathBuf::from(output), write_options)
+        .sink_parquet(PathBuf::from(output), ParquetWriteOptions::default())
         .expect("Cannot write file");
 
     Ok(())

@@ -1,8 +1,11 @@
 use chrono::prelude::*;
 use chrono::Duration;
+
 use kdam::tqdm;
+
 use std::path::PathBuf;
 use std::time::Instant;
+
 use structopt::StructOpt;
 
 mod command_options;
@@ -58,7 +61,7 @@ fn main() {
         Subcommand::FilterIPLoc(args) => {
             println!("Filter IP location");
 
-            let cur = NaiveTime::parse_from_str(&args.current, "%y-%m-%d").unwrap();
+            let cur = NaiveDate::parse_from_str(&args.current, "%y-%m-%d").unwrap();
             let duration = Duration::days(args.span);
             let from = cur - duration;
 
