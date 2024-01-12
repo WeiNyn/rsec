@@ -83,7 +83,9 @@ fn main() {
                 .collect::<Vec<_>>();
             let pass_input = pass_input.iter().map(|p| p.as_str()).collect::<Vec<_>>();
 
+            let now = Instant::now();
             filter_ip_loc(&cur_input, pass_input, &output).unwrap();
+            print!("Elapsed time: {:?}", now.elapsed());
         }
     }
 }
