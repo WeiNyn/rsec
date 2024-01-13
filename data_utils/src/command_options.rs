@@ -29,7 +29,7 @@ pub struct ParseIPArguments {
     #[structopt(short = "g", long = "geolib", help = "Geo library", default_value = "data/GeoLite2-City.mmdb")]
     pub geolib: String,
 
-    #[structopt(short = "s", long = "separator", help = "Separator", default_value = ",")]
+    #[structopt(short = "s", long = "separator", help = "Separator", default_value = "\t")]
     pub separator: String,
 }
 
@@ -50,7 +50,7 @@ pub struct BackfillIPArguments {
     #[structopt(short = "g", long = "geolib", help = "Geo library", default_value = "data/GeoLite2-City.mmdb")]
     pub geolib: String,
 
-    #[structopt(short = "s", long = "separator", help = "Separator", default_value = ",")]
+    #[structopt(short = "s", long = "separator", help = "Separator", default_value = "\t")]
     pub separator: String,
 }
 
