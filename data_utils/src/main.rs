@@ -21,6 +21,14 @@ fn main() {
 
     match options.subcommand {
         Subcommand::ParseIP(args) => {
+            println!("Parse IP");
+
+            let output_path = PathBuf::from(&args.output);
+            let output_folder = output_path.parent().unwrap();
+            if !output_folder.exists() {
+                std::fs::create_dir_all(output_folder).unwrap();
+            }
+
             let now = Instant::now();
             parse_ip(&args.input, &args.output, &args.geolib, &args.separator).unwrap();
             println!("Elapsed time: {:?}", now.elapsed());
